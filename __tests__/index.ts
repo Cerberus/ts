@@ -1,10 +1,11 @@
-const f = (test: number) => test + 1
+import { TEST } from 'test'
+
+const f = <T>(value: T): T => value
 
 describe('general', () => {
-	it('simple', () => {
-		expect(true).toBe(true)
-	})
-	it('test', () => {
-		expect(f(1)).toBe(2)
+	it('simple', async () => {
+		const test = f(1)
+		TEST // ?
+		test // ?
 	})
 })
