@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "none",
-  "dependencies": {},
+  "dependencies": {
+    "dataloader": "^1.4.0"
+  },
   "devDependencies": {
     "@types/jest": "^23.3.10",
     "jest": "^23.6.0",
