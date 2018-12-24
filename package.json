@@ -17,7 +17,11 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md && git commit -m release"
+    "release": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md && git commit -nm release-note && git describe --abbrev=0 --tags | xargs git push origin develop "
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cerberus/ts"
   },
   "author": "Thanaphol",
   "license": "MIT"
