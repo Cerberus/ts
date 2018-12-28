@@ -8,7 +8,8 @@
     "baseUrl": ".",
     "paths": {
       "*": ["src/*", "node_modules/*"]
-    }
+    },
+    "allowSyntheticDefaultImports": true
   },
   "include": [
     "src/**/*",

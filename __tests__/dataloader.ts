@@ -1,5 +1,5 @@
 // @flow
-import * as Dataloader from 'dataloader'
+import Dataloader from 'dataloader'
 
 const f = async (nums: number) => {
 	console.log(nums)
