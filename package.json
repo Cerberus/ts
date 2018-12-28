@@ -1,6 +1,6 @@
 {
   "name": "ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "none",
   "dependencies": {
@@ -17,7 +17,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md && git commit -nm release-note && git describe --abbrev=0 --tags | xargs git push origin develop "
+    "version:make": "npm version --no-git-tag-version",
+    "release": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md package* && git commit -nm release-note && git tag v$npm_package_version && git push origin develop --follow-tags"
   },
   "repository": {
     "type": "git",
