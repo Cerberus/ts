@@ -1,4 +1,3 @@
-// @flow
 import Dataloader from 'dataloader'
 
 const f = async (nums: number) => {

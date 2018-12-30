@@ -5,6 +5,7 @@
     "target": "es5",
     "sourceMap": true,
     "moduleResolution": "node",
+    "noImplicitAny": true,
     "baseUrl": ".",
     "paths": {
       "*": ["src/*", "node_modules/*"]
@@ -13,7 +14,8 @@
   },
   "include": [
     "src/**/*",
-    "__tests__/**/*"
+    "__tests__/**/*",
+    "lib.d.ts"
   ],
   "exclude": [
     "node_modules"

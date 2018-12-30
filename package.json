@@ -1,6 +1,6 @@
 {
   "name": "ts",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "",
   "main": "none",
   "dependencies": {
@@ -8,8 +8,8 @@
   },
   "devDependencies": {
     "@types/jest": "^23.3.10",
-    "conventional-changelog-cli": "^2.0.11",
     "jest": "^23.6.0",
+    "standard-version": "^4.4.0",
     "ts-jest": "^23.10.5",
     "ts-node": "^7.0.1",
     "tsconfig-paths": "^3.7.0",
@@ -17,8 +17,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "version:make": "npm version --no-git-tag-version",
-    "release": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md package* && git commit -nm release-note && git tag v$npm_package_version && git push origin develop --follow-tags"
+    "release": "standard-version"
   },
   "repository": {
     "type": "git",
