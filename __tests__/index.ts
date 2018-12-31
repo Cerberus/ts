@@ -1,3 +1,3 @@
-describe('general', () => {
+describe.only('general', () => {
 	it('simple', async () => {})
 })
