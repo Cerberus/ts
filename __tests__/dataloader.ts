@@ -1,4 +1,4 @@
-import Dataloader from 'dataloader'
+import * as Dataloader from 'dataloader'
 
 const f = async (nums: number) => {
 	console.log(nums)
