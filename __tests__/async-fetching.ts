@@ -4,10 +4,10 @@ const w = {
 
 let ready!: Function
 
-const Facebook = new Promise(res => (ready = res))
+const facebook = new Promise(res => (ready = res))
 
 const track = async (params: Object) =>
-	Facebook.then(FB => {
+	facebook.then(FB => {
 		FB && params // ?
 	})
 
