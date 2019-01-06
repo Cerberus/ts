@@ -23,8 +23,7 @@
   "scripts": {
     "test": "jest --silent",
     "tslint": "tslint -p .",
-    "release": "standard-version",
-    "precommit": "lint-staged"
+    "release": "standard-version"
   },
   "lint-staged": {
     "*.ts": [
