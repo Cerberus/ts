@@ -1,7 +1,7 @@
 import { Test } from 'enum'
 
 const fun = (value: Test) => {
-	if (value === 0) {
+	if (value === 'A') {
 	}
 }
 

@@ -1,4 +1,4 @@
 export enum Test {
-	A,
-	B,
+	A = 'A',
+	B = 'B',
 }
