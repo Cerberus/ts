@@ -1,9 +1,17 @@
-# 1.0.0 (2018-12-24)
+# Change Log
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+<a name="1.0.0"></a>
+# 1.0.0 (2019-01-20)
 
 
 ### Features
 
-* initial CHANGELOG.md ([41969f9](https://github.com/Cerberus/ts/commit/41969f9))
+* a happen ([5b5f672](https://github.com/Cerberus/ts/commit/5b5f672))
+* initial CHANGELOG.md ([0ea606e](https://github.com/Cerberus/ts/commit/0ea606e))
 
 
+### BREAKING CHANGES
 
+* test
