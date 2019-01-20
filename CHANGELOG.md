@@ -8,10 +8,4 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-* a happen ([5b5f672](https://github.com/Cerberus/ts/commit/5b5f672))
 * initial CHANGELOG.md ([0ea606e](https://github.com/Cerberus/ts/commit/0ea606e))
-
-
-### BREAKING CHANGES
-
-* test
