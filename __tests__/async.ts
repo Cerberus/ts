@@ -1,7 +1,7 @@
-const f = async () => Promise.resolve(1)
+const bar = async () => Promise.resolve(1)
 
-describe.only('async', () => {
+describe('async', () => {
 	it('simple', async () => {
-		expect(await f()).toEqual(1)
+		expect(await bar()).toEqual(1)
 	})
 })

@@ -1,11 +1,14 @@
-import { Test } from 'enum'
+export enum Test {
+	A = 'A',
+	B = 'B',
+}
 
 const fun = (value: Test) => {
 	if (value === 'A') {
 	}
 }
 
-describe.only('general', () => {
+describe('general', () => {
 	it('simple', async () => {
 		fun(Test.A)
 		Test
