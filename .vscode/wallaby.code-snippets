@@ -1,0 +1,9 @@
+{
+	"get value": {
+		"scope": "javascript,typescript",
+		"prefix": "//?",
+		"body": [
+			"/*?*/",
+		]
+	}
+}
