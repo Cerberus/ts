@@ -1,3 +1,3 @@
-describe('general', () => {
-	it('simple', () => {})
+describe('simple', () => {
+	it('test', () => {})
 })
