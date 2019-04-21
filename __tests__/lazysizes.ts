@@ -19,7 +19,7 @@ export const genLazysizesHTML = (content: string) =>
 			)}" data-srcset="${getContentSrcset(src)}" ${otherAttrs}/>`,
 	)
 
-describe.only('getSrcset', () => {
+describe('getSrcset', () => {
 	const expectedSrc =
 		'https://img.wongnai.com/p/400x0/2018/11/30/id.jpg 400w,https://img.wongnai.com/p/800x0/2018/11/30/id.jpg 800w'
 	it('getSrcset from _-x_', () => {

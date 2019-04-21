@@ -1,3 +1,3 @@
-describe('simple', () => {
+describe.only('simple', () => {
 	it('test', () => {})
 })
