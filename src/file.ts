@@ -1,3 +1,6 @@
-const proxy = <T>(fun: Function) => {
-	return fun
+export const one = {
+	a: Math.random(),
+}
+export const two = {
+	a: Math.random(),
 }

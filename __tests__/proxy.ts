@@ -11,14 +11,12 @@ function proxify<T>(o: T): Proxify<T> {
 }
 
 const props = {
-	getStr(test: string) {},
+	a: (test: string) => {},
 }
 
-let proxyProps = proxify(props)
+const proxyProps = proxify(props)
 
-proxyProps.getStr
-
-const myProps = new Proxy(props, handler)
+proxyProps.a
 
 describe('none', () => {
 	it('none', () => {})

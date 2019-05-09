@@ -10,6 +10,7 @@ module.exports = function(wallaby) {
 		compilers: {
 			'**/*.ts?(x)': wallaby.compilers.typeScript({
 				useStandardDefaults: true,
+				isolatedModules: true,
 			}),
 		},
 		tests: ['__tests__/*.ts'],

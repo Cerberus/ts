@@ -1,4 +1,4 @@
-describe.only('sw-cloudflaare', () => {
+describe('sw-cloudflaare', () => {
 	it('simple', async () => {
 		type CacheValue = string | string[] | null
 
