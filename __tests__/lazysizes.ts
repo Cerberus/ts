@@ -36,7 +36,7 @@ describe('getSrcset', () => {
 	})
 })
 
-describe.only('lazysizes', () => {
+describe('lazysizes', () => {
 	const expectedImgTag =
 		'<img class="lazyload" data-sizes="auto" data-src="https://img.wongnai.com/p/800x0/2018/11/30/id.jpg 800w" data-srcset="https://img.wongnai.com/p/400x0/2018/11/30/id.jpg 400w,https://img.wongnai.com/p/800x0/2018/11/30/id.jpg 800w,https://img.wongnai.com/p/1600x0/2018/11/30/id.jpg 1600w,https://img.wongnai.com/p/1920x0/2018/11/30/id.jpg 1920w" alt="alt123" />'
 	it('generate img tag from article contents', () => {
