@@ -4,7 +4,12 @@
   "description": "",
   "main": "none",
   "dependencies": {
-    "dataloader": "^1.4.0"
+    "@types/jsonwebtoken": "^8.3.2",
+    "dataloader": "^1.4.0",
+    "jsonwebtoken": "^8.5.1",
+    "react": "^16.8.6",
+    "react-hooks-testing-library": "^0.6.0",
+    "react-test-renderer": "^16.8.6"
   },
   "devDependencies": {
     "@types/jest": "^24.0.12",
