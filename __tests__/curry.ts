@@ -4,7 +4,7 @@ const addTwo = (x: number) => sum(x, 2)
 
 // const plusTwo = bind(sum, 2)
 
-describe.only('curry', () => {
+describe('curry', () => {
 	it('basic', () => {
 		addTwo(2)
 		// plusTwo(2)

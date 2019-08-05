@@ -4,10 +4,14 @@
   "description": "",
   "main": "none",
   "dependencies": {
+    "@types/graphql": "^14.2.3",
     "@types/jsonwebtoken": "^8.3.2",
+    "@types/qs": "^6.5.3",
     "dataloader": "^1.4.0",
+    "graphql": "^14.4.2",
     "immutable": "^4.0.0-rc.12",
     "jsonwebtoken": "^8.5.1",
+    "qs": "^6.7.0",
     "react": "^16.8.6",
     "react-hooks-testing-library": "^0.6.0",
     "react-test-renderer": "^16.8.6"

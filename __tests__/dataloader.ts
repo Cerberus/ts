@@ -1,6 +1,6 @@
 import * as Dataloader from 'dataloader'
 
-describe.only('dataloader', () => {
+describe('dataloader', () => {
 	it('simple await', async () => {
 		const f = async (nums: number) => {
 			console.log(nums)
@@ -23,15 +23,10 @@ describe.only('dataloader', () => {
 	it('batching', async () => {
 		const api = async (ids: number[]) => {
 			console.log(ids)
-			return ids.map(id => ({ id }))
+			return ids.map(async id => ({ id }))
 		}
 
-		const g = (nums: number[]) => {
-			console.log(nums)
-			return api(nums)
-		}
-
-		const fLoader = new Dataloader(g)
+		const fLoader = new Dataloader(api)
 		await Promise.all([
 			fLoader.loadMany([1, 2]),
 			fLoader.loadMany([1, 3]),

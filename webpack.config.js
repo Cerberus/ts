@@ -1,17 +1,14 @@
 const path = require('path')
 
 module.exports = {
-	target: 'webworker',
+	target: 'node',
 	entry: './src/index.ts',
 	module: {
 		rules: [
 			{
 				test: /\.ts?$/,
 				use: 'ts-loader',
-			},
-			{
-				test: /\.js?$/,
-				use: 'ts-loader',
+				exclude: /node_modules/,
 			},
 		],
 	},
@@ -23,7 +20,7 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 	},
 	mode: 'production',
-	optimization: {
-		usedExports: true,
-	},
+	// optimization: {
+	// 	usedExports: true,
+	// },
 }

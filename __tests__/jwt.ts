@@ -1,6 +1,6 @@
 import * as jwt from 'jsonwebtoken'
 
-describe.only('jwt', () => {
+describe('jwt', () => {
 	it('simple', () => {
 		const SECRET = 'secret'
 		const id = 'test'
