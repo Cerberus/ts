@@ -1,16 +1,9 @@
 import { graphql, buildSchema } from 'graphql'
 
-function getIntArg(argName: any) {
-	const arg = process.argv.find(a => new RegExp(`^${argName}=`).test(a))
-	if (arg) {
-		return Number.parseInt(arg.split('=')[1], 10)
-	}
-}
-
 // Test arguments
 const args = {
-	limit: getIntArg('limit') || 10000,
-	async: getIntArg('async') || false,
+	limit: 1000,
+	async: true,
 }
 
 const schema = buildSchema(`
@@ -49,7 +42,7 @@ class Book {
 	}
 }
 
-const root = {
+const resolvers = {
 	books: ({ limit }: { limit: number }) => {
 		const books = []
 		for (let i = 0; i < limit; i += 1) {
@@ -74,7 +67,7 @@ async function main() {
       }
     }
   `,
-		root,
+		resolvers,
 	)
 	console.timeEnd(testName)
 }

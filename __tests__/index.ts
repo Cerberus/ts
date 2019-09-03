@@ -1,3 +1,3 @@
-describe.only('index', () => {
-	it('test', async () => {})
+describe('index', () => {
+	it('simple', () => {})
 })
