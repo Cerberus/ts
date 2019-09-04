@@ -1,3 +1,7 @@
+import { add } from '@cerberus/script'
+
 describe.only('index', () => {
-	it('simple', () => {})
+	it('simple', () => {
+		add(2, 3) /*?*/
+	})
 })

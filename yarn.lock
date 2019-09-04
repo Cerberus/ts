@@ -138,6 +138,11 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@cerberus/script@1.0.1":
+  version "1.0.1"
+  resolved "https://npm.pkg.github.com/download/@cerberus/script/1.0.1/2b183458975bce52236f5c95e6a0b0e7b2e9d0bc722760a315d4dfc726757f74#"
+  integrity sha512-oZfNq7CJ4QbSBQCpjxVVSsFCAfDG5yqVau36sZU2x3A/DO9U8FD3iqlnLux4lSBeERYdtteelEnmArlVkrDWHg==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"
