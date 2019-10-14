@@ -1,7 +1,14 @@
-import { add } from '@cerberus/script'
+const obj = {
+	instant: {
+		test: 'file.name.word',
+	},
+	get name() {
+		return this.instant
+	},
+}
 
 describe.only('index', () => {
 	it('simple', () => {
-		add(2, 3) /*?*/
+		obj.name /*?*/
 	})
 })

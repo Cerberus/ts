@@ -5,7 +5,8 @@
 		"no-this-assignment": false,
 		"import-name": [true, {
 			"dataloader": "Dataloader",
-			"object-sizeof": "objectSizeof"
+			"object-sizeof": "objectSizeof",
+			"cache": "Cache"
 		}]
 	}
 }

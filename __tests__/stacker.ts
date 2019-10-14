@@ -22,6 +22,7 @@ describe('stacker', () => {
 	it('index', async () => {
 		const callback = jest.fn()
 		const reviewStacker = new Stacker<string>(callback)
+		jest.runAllTimers()
 		expect(callback).not.toBeCalled()
 		reviewStacker.add('1')
 		reviewStacker.add('1')
@@ -29,5 +30,6 @@ describe('stacker', () => {
 		expect(reviewStacker.items).toEqual(new Set(['1', '2']))
 		jest.runAllTimers()
 		expect(reviewStacker.items).toEqual(new Set([]))
+		expect(callback).toBeCalledWith(['1', '2'])
 	})
 })
