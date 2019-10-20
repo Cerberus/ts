@@ -16,16 +16,18 @@
     "object-sizeof": "^1.5.1",
     "qs": "^6.7.0",
     "react": "^16.8.6",
-    "react-hooks-testing-library": "^0.6.0",
     "react-test-renderer": "^16.8.6"
   },
   "devDependencies": {
+    "@testing-library/react-hooks": "^3.1.0",
     "@types/jest": "^24.0.12",
     "@types/lodash.uniqby": "^4.7.6",
     "@types/node": "^12.7.5",
+    "assemblyscript": "AssemblyScript/assemblyscript",
     "husky": "^3.0.5",
     "jest": "^24.8.0",
     "lint-staged": "^9.2.5",
+    "onchange": "^6.1.0",
     "prettier": "^1.15.3",
     "standard-version": "^7.0.0",
     "ts-jest": "^24.0.2",
@@ -41,7 +43,9 @@
     "test": "jest --silent",
     "test:watch": "jest --watch",
     "tslint": "tslint -p .",
-    "release": "standard-version"
+    "release": "standard-version",
+    "asbuild:watch": "onchange 'src/assembly/**/file.ts' -- yarn asbuild",
+    "asbuild": "asc src/assembly/script/file.ts -b src/assembly/script/file.wasm -t src/assembly/script/file.wat --sourceMap --validate --debug"
   },
   "lint-staged": {
     "*.ts": [

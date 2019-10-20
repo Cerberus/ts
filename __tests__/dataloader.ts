@@ -3,13 +3,11 @@ import * as Dataloader from 'dataloader'
 describe('dataloader', () => {
 	it('simple await', async () => {
 		const f = async (nums: number) => {
-			console.log(nums)
 			await new Promise(res => setTimeout(res))
 			return nums
 		}
 
 		const g = (nums: number[]) => {
-			console.log(nums)
 			return Promise.all(nums.map(f))
 		}
 
@@ -22,7 +20,6 @@ describe('dataloader', () => {
 
 	it('batching', async () => {
 		const api = async (ids: number[]) => {
-			console.log(ids)
 			return ids.map(async id => ({ id }))
 		}
 

@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef } from 'react'
-import { renderHook, act } from 'react-hooks-testing-library'
+import { renderHook, act } from '@testing-library/react-hooks'
 
 export const useBoolean = (initial: boolean = false) => {
 	const ref = useRef()
