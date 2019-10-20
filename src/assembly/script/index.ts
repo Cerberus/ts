@@ -1,8 +1,8 @@
 const fs = require('fs')
 
-const compiled = new WebAssembly.Module(
-	fs.readFileSync(`${__dirname}/file.wasm`),
-)
+const path = `${__dirname}/file.wasm`
+
+const compiled = new WebAssembly.Module(fs.readFileSync(path))
 
 const imports = {
 	env: {

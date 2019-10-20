@@ -1,3 +1,3 @@
 describe('index', () => {
-	it('simple', async () => {})
+	it('simple', () => {})
 })
