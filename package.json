@@ -44,8 +44,8 @@
     "test:watch": "jest --watch",
     "tslint": "tslint -p .",
     "release": "standard-version",
-    "asbuild:watch": "onchange 'src/assembly/**/file.ts' -- yarn asbuild",
-    "asbuild": "asc src/assembly/script/file.ts -b src/assembly/script/file.wasm -t src/assembly/script/file.wat --sourceMap --validate --debug;echo ✔︎"
+    "asbuild:watch": "onchange src/assembly/**/file.ts -- yarn asbuild",
+    "asbuild": "asc src/assembly/script/file.ts -b src/assembly/script/file.wasm --validate --debug;echo ✔︎"
   },
   "lint-staged": {
     "*.ts": [

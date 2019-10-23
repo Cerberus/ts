@@ -1,4 +1,4 @@
-import { Map, Record } from 'immutable'
+import { Map } from 'immutable'
 
 describe('immutable', () => {
 	it('index', () => {})

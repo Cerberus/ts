@@ -7,4 +7,5 @@ module.exports = {
 		},
 	},
 	moduleDirectories: ['node_modules', 'src'],
+	watchPathIgnorePatterns: ['<rootDir>/src/assembly/'],
 }

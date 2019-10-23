@@ -1,8 +1,14 @@
-module.exports = function(wallaby) {
+const childProcess = require('child_process')
+let firstLoad = true
+module.exports = wallaby => {
 	return {
-		files: ['src/*.ts', { pattern: '*.wasm', binary: true }],
+		files: [
+			'src/**/*.ts',
+			// { pattern: '**/*.wasm', binary: true },
+			'!src/assembly/**/index.ts',
+		],
 		compilers: {
-			'**/*.ts?(x)': wallaby.compilers.typeScript({
+			'**/!(file).ts': wallaby.compilers.typeScript({
 				useStandardDefaults: true,
 				isolatedModules: true,
 			}),
@@ -13,5 +19,35 @@ module.exports = function(wallaby) {
 			runner: 'node',
 		},
 		testFramework: 'jest',
+		postprocessor: wallaby => {
+			return new Promise((resolve, reject) => {
+				const asFile = wallaby.affectedFiles.find(({ path }) =>
+					path.endsWith('/file.ts'),
+				)
+				if (!!asFile && !firstLoad) {
+					childProcess.execFile(
+						'./node_modules/.bin/asc',
+						[
+							asFile.fullPath,
+							'-b',
+							asFile.path.replace('.ts', '.wasm'),
+							'--validate',
+							'--debug',
+						],
+						(e, stdout) => {
+							if (e) {
+								reject(e)
+							} else {
+								console.log('done')
+								resolve()
+							}
+						},
+					)
+				} else {
+					firstLoad = false
+					resolve()
+				}
+			})
+		},
 	}
 }
