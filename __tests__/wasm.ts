@@ -1,7 +1,7 @@
 // @ts-ignore
 import { add, sub } from 'assembly/script'
 
-describe.only('assembly', () => {
+describe('assembly', () => {
 	it('add', () => {
 		Math.random() /*?*/
 		expect(add(1, 2)).toEqual(3)

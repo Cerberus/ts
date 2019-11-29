@@ -6,7 +6,8 @@
 		"import-name": [true, {
 			"dataloader": "Dataloader",
 			"object-sizeof": "objectSizeof",
-			"cache": "Cache"
+			"cache": "Cache",
+			"serializeJavascript": "serialize"
 		}]
 	}
 }
