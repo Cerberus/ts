@@ -1,11 +1,11 @@
 const serialize = require('serialize-javascript')
 
-describe('serialize-javascript', () => {
+describe.only('serialize-javascript', () => {
 	it('simple', () => {
 		// JSON.parse(`{ "key": "\""}`) /*?*/
 		JSON.parse(String.raw`{ "key": "\""}`) /*?*/
 	})
-	xit('test', () => {
+	it('test', () => {
 		const get2 = () => ({
 			store: {
 				elites: { isFetcshing: false, value: {}, key: null, error: null },

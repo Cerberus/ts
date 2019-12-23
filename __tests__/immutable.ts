@@ -1,5 +1,5 @@
 import { Map, List, fromJS } from 'immutable'
 
-describe.only('immutable', () => {
+describe('immutable', () => {
 	it('index', () => {})
 })
