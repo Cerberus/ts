@@ -1,6 +1,6 @@
 const serialize = require('serialize-javascript')
 
-describe.only('serialize-javascript', () => {
+describe('serialize-javascript', () => {
 	it('simple', () => {
 		// JSON.parse(`{ "key": "\""}`) /*?*/
 		JSON.parse(String.raw`{ "key": "\""}`) /*?*/

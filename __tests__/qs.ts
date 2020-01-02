@@ -1,3 +1,3 @@
-describe.only('qs', () => {
+describe('qs', () => {
 	it('index', () => {})
 })

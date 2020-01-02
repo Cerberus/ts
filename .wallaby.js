@@ -13,7 +13,7 @@ module.exports = wallaby => {
 				isolatedModules: true,
 			}),
 		},
-		tests: ['__tests__/*.ts'],
+		tests: ['__tests__/*.ts', '__tests__/**/index.ts'],
 		env: {
 			type: 'node',
 			runner: 'node',
