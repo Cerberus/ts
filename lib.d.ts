@@ -4,5 +4,6 @@ declare function bind<T, U extends any[], V>(
 ): (...args: U) => V
 
 interface Object {
-	getIn(paths: string[]): any
+	get(key: string): any
+	getIn(keys: string[]): any
 }
