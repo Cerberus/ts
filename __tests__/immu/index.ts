@@ -1,9 +1,10 @@
 import 'prototype'
 
-describe.only('index', () => {
-	it('test', () => {
+describe.only('immut', () => {
+	it('getIn', () => {
 		const obj = { a: { b: 'value' } }
-		obj.getIn(['a', 'b']) /*?*/
-		obj.getIn(['a', 'c']) /*?*/
+		expect(obj.getIn(['a', 'b'])).toEqual('value')
+		expect(obj.getIn(['a', 'c'])).toEqual(undefined)
+		expect(obj.getIn(['a']) === obj.getIn(['a'])).toBeTruthy()
 	})
 })
