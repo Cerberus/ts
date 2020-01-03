@@ -31,8 +31,21 @@ describe('immu', () => {
 			expect(Map().isEmpty()).toBeTruthy()
 			expect(Map({ a: 1 }).isEmpty()).toBeFalsy()
 		})
-		// update that support index
-		//
+		it('update', () => {
+			const obj = { c: 0, a: 1 }
+			expect(obj.update('a', value => value + 1)).toEqual({ c: 0, a: 2 })
+		})
+		it('updateIn', () => {
+			const obj = { c: 0, s: { d: 1, c: 0 } }
+			expect(obj.updateIn(['s', 'd'], value => value + 1)).toEqual({
+				c: 0,
+				s: { d: 2, c: 0 },
+			})
+			expect({ a: 0 }.updateIn(['b', 'b'], value => value)).toEqual({
+				a: 0,
+				b: { b: undefined },
+			})
+		})
 	})
 	describe('List', () => {
 		it('constructor', () => {
@@ -54,10 +67,10 @@ describe('immu', () => {
 	})
 
 	it('Record', () => {
-		const Re = Record({ id: 1 })
-		const r = new Re({ id: 2 })
-		const newR = r.merge({ id: 3 })
-		newR.get('id') /*?*/
+		// const Re = Record({ id: 1 })
+		// const r = new Re({ id: 2 })
+		// const newR = r.merge({ id: 3 })
+		// newR.get('id') /*?*/
 	})
 	it('OrderedSet', () => {
 		const a = OrderedSet([
