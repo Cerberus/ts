@@ -1,8 +1,15 @@
-import { OrderedSet, Record } from 'immutable'
-import { Map, List, fromJS } from 'immu'
+import { OrderedSet } from 'immutable'
+import { Map, List, fromJS, Record } from 'immu'
 require('prototype')
 
 describe('immu', () => {
+	it('unqiue', () => {
+		const list1 = [{ key: 1 }, { key: 2 }]
+		const list2 = [{ key: 2 }, { key: 3 }]
+		list1.concat(
+			list2.filter(obj2 => !list1.find(obj1 => obj1.key === obj2.key)),
+		) /*?*/
+	})
 	describe('Map', () => {
 		it('constrcutor', () => {
 			const obj = {}
@@ -119,11 +126,16 @@ describe('immu', () => {
 	})
 
 	it('Record', () => {
-		// const Re = Record({ id: 1 })
-		// const r = new Re({ id: 2 })
-		// const newR = r.merge({ id: 3 })
-		// newR.get('id') /*?*/
+		// tslint:disable-next-line
+		const MyRecord = Record({ id: 1, none: 0 })
+		const record = MyRecord({ id: 2 })
+		expect(record.get('id')).toEqual(2)
+
+		const newRecord = record.merge({ id: 3 })
+		expect(newRecord.get('none')).toEqual(0)
+		expect(newRecord.get('id')).toEqual(3)
 	})
+
 	it('OrderedSet', () => {
 		const a = OrderedSet([
 			['b', 'va'],

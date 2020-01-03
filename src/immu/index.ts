@@ -17,6 +17,22 @@ export const fromJS = <T>(item: T) => item
 // 	}
 // }
 
-// export const record = <T>(initialObj: T, name?: string) => (obj: Partial<T>) =>
-// 	new Record(initialObj, name)
-// new solution proxy object instead new Proxy(obj, {...})
+// tslint:disable-next-line
+export const Record = <T>(initialObj: T) => (obj: Partial<T>) => ({
+	...initialObj,
+	...obj,
+})
+
+// // tslint:disable-next-line
+// export const Record = <T>(initialObj: T) => (obj: Partial<T>) => {
+// 	const handler = {
+// 		get(obj: Object, key: string) {
+// 			key	 /*?*/
+// 			initialObj[key] /*?*/
+// 			obj[key] /*?*/
+// 			// @ts-ignore
+// 			return obj[key] || initialObj[key]
+// 		},
+// 	}
+// 	return new Proxy(obj, handler as any)
+// }
