@@ -6,4 +6,6 @@ declare function bind<T, U extends any[], V>(
 interface Object {
 	get(key: string): any
 	getIn(keys: string[]): any
+	merge(obj: Object): any
+	isEmpty(): boolean
 }
