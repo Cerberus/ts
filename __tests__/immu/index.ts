@@ -27,13 +27,13 @@ describe('immu', () => {
 		})
 
 		it('merge', () => {
-			const obj = Map({ c: 1, s: { d: 1 } })
+			const obj = { c: 1, s: { d: 1 } }
 			expect(obj.merge({ s: { d: 2 } })).toEqual({ c: 1, s: { d: 2 } })
 		})
 
 		it('isEmpty', () => {
-			expect(Map().isEmpty()).toBeTruthy()
-			expect(Map({ a: 1 }).isEmpty()).toBeFalsy()
+			expect({}.isEmpty()).toBeTruthy()
+			expect({ a: 1 }.isEmpty()).toBeFalsy()
 		})
 
 		it('update', () => {
@@ -83,10 +83,17 @@ describe('immu', () => {
 			expect(List(list)).toBe(List(list))
 			expect(List(list)).toBe(list)
 		})
+
 		it('size', () => {
 			expect([].size).toEqual(0)
 		})
+
 		it('first', () => {})
+
+		it('isEmpty', () => {
+			expect([].isEmpty()).toBeTruthy()
+			expect([1].isEmpty()).toBeFalsy()
+		})
 
 		it('update', () => {
 			const arr = [0, 1]
