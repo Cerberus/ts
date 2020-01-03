@@ -88,7 +88,9 @@ describe('immu', () => {
 			expect([].size).toEqual(0)
 		})
 
-		it('first', () => {})
+		it('first', () => {
+			expect([1].first()).toEqual(1)
+		})
 
 		it('isEmpty', () => {
 			expect([].isEmpty()).toBeTruthy()

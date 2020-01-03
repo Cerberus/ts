@@ -15,12 +15,13 @@ interface Object {
 }
 
 interface Array<T = any> {
-	get(key: string): any
-	getIn(keys: string[]): any
+	get(key: string): T
+	getIn(keys: string[]): T
 	update(key: string, updater: (value: any) => any): Array<T>
 	updateIn(keys: string[], updater: (value: any) => any): Array<T>
 	set(key: string, updater: () => any): Array<T>
 	setIn(keys: string[], updater: () => any): Array<T>
 	isEmpty(): boolean
+	first(): T
 	size: number
 }

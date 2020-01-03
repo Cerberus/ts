@@ -81,6 +81,10 @@ Array.prototype.set = Array.prototype.update
 
 Array.prototype.setIn = Array.prototype.updateIn
 
+Array.prototype.first = function() {
+	return (this as Arr)[0]
+}
+
 Array.prototype.size = Array.prototype.length
 
 type Obj = { [key: string]: any }
