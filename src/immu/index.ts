@@ -4,9 +4,17 @@ export const Map = <T>(obj?: T) => obj || EMPTY_OBJECT
 
 const EMPTY_LIST: any = []
 // tslint:disable-next-line
-export const List = <T>(list?: T[]): T[] => list || EMPTY_LIST
+export const List = <T>(list?: T[]): T[] => {
+	const value = list || EMPTY_LIST
+	// value.size = value.length
+	return value
+}
 
 export const fromJS = <T>(item: T) => item
+
+// tslint:disable-next-line
+export const Record = <T>(initialObj: T) => (obj: Partial<T>) =>
+	Object.assign({}, initialObj, obj)
 
 // export class Record<T> {
 // 	initialObj: T
@@ -16,12 +24,6 @@ export const fromJS = <T>(item: T) => item
 // 		this.name = name
 // 	}
 // }
-
-// tslint:disable-next-line
-export const Record = <T>(initialObj: T) => (obj: Partial<T>) => ({
-	...initialObj,
-	...obj,
-})
 
 // // tslint:disable-next-line
 // export const Record = <T>(initialObj: T) => (obj: Partial<T>) => {

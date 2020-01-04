@@ -19,6 +19,9 @@ describe('immutable', () => {
 
 		mergeIt([{ business: { id: 1 } }, { business: { id: 1 } }]) /*?*/
 	})
+	it('List', () => {
+		List([1, 2, 3]).remove(1) /*?*/
+	})
 	it('mergeWith', () => {
 		const map = fromJS({ a: { b: 1 } })
 		map.mergeWith((value: any, newValue: any, key: string) => {

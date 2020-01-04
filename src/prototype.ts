@@ -1,18 +1,31 @@
 // immu
 
+// export const addSize = (value: Obj | Arr) => {
+// 	if (Array.isArray(value)) {
+// 		value.size = value.length
+// 	}
+// }
+
 Object.prototype.get = function() {
 	const key: string = arguments[0]
-	return (this as Obj)[key]
+	const value = (this as Obj)[key]
+	// addSize(value)
+	return value
 }
 
 Object.prototype.getIn = function() {
 	const keys: string[] = arguments[0]
-	return keys.reduce((acc, key) => (acc ? acc[key] : undefined), this as Obj)
+	const value = keys.reduce(
+		(acc, key) => (acc ? acc[key] : undefined),
+		this as Obj,
+	)
+	// addSize(value)
+	return value
 }
 
 Object.prototype.merge = function() {
 	const obj: Obj = arguments[0]
-	return { ...(this as Obj), ...obj }
+	return Object.assign({}, this as Obj, obj)
 }
 
 Object.prototype.isEmpty = function() {
@@ -36,13 +49,11 @@ const updateIn = function(
 		)
 	}
 	if (Array.isArray(item)) {
-		return [
-			...item.slice(0, +key),
-			newValue,
-			...item.slice(+key + 1, item.length),
-		]
+		return item
+			.slice(0, +key)
+			.concat(newValue, item.slice(+key + 1, item.length))
 	}
-	return { ...item, [key]: newValue }
+	return Object.assign({}, item, { [key]: newValue })
 }
 
 Object.prototype.update = function() {
@@ -85,7 +96,10 @@ Array.prototype.first = function() {
 	return (this as Arr)[0]
 }
 
-Array.prototype.size = Array.prototype.length
+Array.prototype.remove = function(index: number) {
+	const arr = this as Arr
+	return arr.slice(0, index).concat(arr.slice(index + 1, arr.length))
+}
 
 type Obj = { [key: string]: any }
 type Arr = Array<any>

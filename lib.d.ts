@@ -3,25 +3,28 @@ declare function bind<T, U extends any[], V>(
 	x: T,
 ): (...args: U) => V
 
+type AccessPath = string | number
+
 interface Object {
-	get(key: string): any
-	getIn(keys: string[]): any
+	get(key: AccessPath): any
+	getIn(keys: AccessPath[]): any
 	merge(obj: Object): Object
-	update(key: string, updater: (value: any) => any): Object
-	updateIn(keys: string[], updater: (value: any) => any): Object
-	set(key: string, updater: () => any): Object
-	setIn(keys: string[], updater: () => any): Object
+	update(key: AccessPath, updater: (value: any) => any): Object
+	updateIn(keys: AccessPath[], updater: (value: any) => any): Object
+	set(key: AccessPath, updater: () => any): Object
+	setIn(keys: AccessPath[], updater: () => any): Object
 	isEmpty(): boolean
 }
 
 interface Array<T = any> {
-	get(key: string): T
-	getIn(keys: string[]): T
-	update(key: string, updater: (value: any) => any): Array<T>
-	updateIn(keys: string[], updater: (value: any) => any): Array<T>
-	set(key: string, updater: () => any): Array<T>
-	setIn(keys: string[], updater: () => any): Array<T>
+	get(key: AccessPath): any
+	getIn(keys: AccessPath[]): any
+	update(key: AccessPath, updater: (value: any) => any): Array<T>
+	updateIn(keys: AccessPath[], updater: (value: any) => any): Array<T>
+	set(key: AccessPath, updater: () => any): Array<T>
+	setIn(keys: AccessPath[], updater: () => any): Array<T>
 	isEmpty(): boolean
 	first(): T
+	remove(index: number): T
 	size: number
 }
