@@ -1,7 +1,7 @@
 import { Map, List, fromJS, Record } from 'immu'
 require('prototype')
 
-describe('immu', () => {
+describe.only('immu', () => {
 	describe('Map', () => {
 		it('constrcutor', () => {
 			const obj = {}

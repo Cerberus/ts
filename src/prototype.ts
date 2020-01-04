@@ -8,17 +8,18 @@
 
 Object.prototype.get = function() {
 	const key: string = arguments[0]
-	const value = (this as Obj)[key]
+	const defaultValue: any = arguments[1]
+	const value = (this as Obj)[key] ?? defaultValue
 	// addSize(value)
 	return value
 }
 
 Object.prototype.getIn = function() {
 	const keys: string[] = arguments[0]
-	const value = keys.reduce(
-		(acc, key) => (acc ? acc[key] : undefined),
-		this as Obj,
-	)
+	const defaultValue: any = arguments[1]
+	const value =
+		keys.reduce((acc, key) => (acc ? acc[key] : undefined), this as Obj) ??
+		defaultValue
 	// addSize(value)
 	return value
 }
@@ -45,7 +46,7 @@ const updateIn = function(
 		newValue = updateIn(
 			keys.slice(1),
 			updater,
-			item.get(key) || (Number.isInteger(+keys[1]) ? [] : {}),
+			item.get(key) ?? (Number.isInteger(+keys[1]) ? [] : {}),
 		)
 	}
 	if (Array.isArray(item)) {
