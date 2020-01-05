@@ -1,21 +1,10 @@
 import { Map, List, fromJS, Record } from 'immu'
-require('prototype')
 
-describe.only('immu', () => {
+describe('immu', () => {
 	describe('Map', () => {
-		it('constrcutor', () => {
-			const obj = {}
-			expect(Map()).toBe(Map())
-			expect(Map(obj)).toBe(Map(obj))
-			expect(Map(obj)).toBe(obj)
-		})
-
-		it('get', () => {
-			const obj = { a: 'value', b: {}, c: [0] }
-			expect(obj.get('a')).toEqual('value')
-			expect(obj.get('b')).toEqual({})
-			expect(obj.get('b') === obj.get('b')).toBeTruthy()
-			// expect(obj.get('c').size).toEqual(1)
+		it('constructor', () => {
+			expect(Map()).toEqual({})
+			expect(Map({ a: 1 })).toEqual({ a: 1 })
 		})
 
 		it('getIn', () => {
@@ -24,11 +13,11 @@ describe.only('immu', () => {
 			expect(obj.getIn(['a', 'd'])).toEqual(undefined)
 			expect(obj.getIn(['a', 'b', 'c'])).toEqual(undefined)
 			expect(obj.getIn(['a']) === obj.getIn(['a'])).toBeTruthy()
-			// expect(obj.getIn(['a', 'c']).size).toEqual(1)
 		})
 
 		it('merge', () => {
 			const obj = { c: 1, s: { d: 1 } }
+			obj.updateIn === Object(obj.updateIn) /*?*/
 			expect(obj.merge({ s: { d: 2 } })).toEqual({ c: 1, s: { d: 2 } })
 		})
 
@@ -57,38 +46,30 @@ describe.only('immu', () => {
 			).toEqual({ s: { d: [2] } })
 		})
 
-		it('set', () => {
-			const obj = { c: 0, a: 1 }
-			expect(obj.set('a', () => 2)).toEqual({ c: 0, a: 2 })
-		})
-
 		it('setIn', () => {
 			const obj = { c: 0, s: { d: 1, c: 0 } }
-			expect(obj.setIn(['s', 'd'], () => 2)).toEqual({
+			expect(obj.setIn(['s', 'd'], 2)).toEqual({
 				c: 0,
 				s: { d: 2, c: 0 },
 			})
-			expect({ c: 0 }.setIn(['a', 'a'], () => 1)).toEqual({
+			expect({ c: 0 }.setIn(['a', 'a'], 1)).toEqual({
 				c: 0,
 				a: { a: 1 },
 			})
-			expect({ s: { d: [1] } }.setIn(['s', 'd', '0'], () => 2)).toEqual({
+			expect({ s: { d: [1] } }.setIn(['s', 'd', '0'], 2)).toEqual({
 				s: { d: [2] },
 			})
 		})
 	})
 	describe('List', () => {
 		it('constructor', () => {
-			const list: any[] = []
-			expect(List()).toBe(List())
-			expect(List(list)).toBe(List(list))
-			expect(List(list)).toBe(list)
-			// expect(List().size).toEqual(0)
-			// expect(List([1]).size).toEqual(1)
+			expect(List()).toEqual([])
+			expect(List([1])).toEqual([1])
 		})
 
 		it('size', () => {
-			const list = [1, 2, 3]
+			const list = [1, 2]
+			expect(list.size).toEqual(2)
 		})
 
 		it('first', () => {
@@ -112,7 +93,10 @@ describe.only('immu', () => {
 			expect(
 				[{ a: [1] }].updateIn(['0', 'a', '0'], value => value + 1),
 			).toEqual([{ a: [2] }])
-			// List([1]).update(0, () => 2).size /*?*/
+		})
+
+		it('setIn', () => {
+			expect([].setIn([0, 'a'], 3)).toEqual([{ a: 3 }])
 		})
 
 		it('remove', () => {
@@ -132,24 +116,11 @@ describe.only('immu', () => {
 			// tslint:disable-next-line
 			const MyRecord = Record({ id: 1, none: 0 })
 			const record = MyRecord({ id: 2 })
-			expect(record.get('id')).toEqual(2)
+			expect(record.getIn(['id'])).toEqual(2)
 
 			const newRecord = record.merge({ id: 3 })
-			expect(newRecord.get('none')).toEqual(0)
-			expect(newRecord.get('id')).toEqual(3)
+			expect(newRecord.getIn(['none'])).toEqual(0)
+			expect(newRecord.getIn(['id'])).toEqual(3)
 		})
 	})
-
-	// it('OrderedSet', () => {
-	// 	const s = new Set()
-	// 	s
-	// 	const a = OrderedSet([1, 2])
-	// 	a.add(3) /*?*/
-	// 	a.map(a => {
-	// 		a /*?*/
-	// 	}) /*?*/
-	// 	const set = OrderedSet(['b', 'a'])
-	// 	set.add('a') /*?*/
-	// 	set.map(a => a).toList() /*?*/
-	// })
 })

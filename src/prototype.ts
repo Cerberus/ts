@@ -1,27 +1,11 @@
-// immu
-
-// export const addSize = (value: Obj | Arr) => {
-// 	if (Array.isArray(value)) {
-// 		value.size = value.length
-// 	}
-// }
-
-Object.prototype.get = function() {
-	const key: string = arguments[0]
-	const defaultValue: any = arguments[1]
-	const value = (this as Obj)[key] ?? defaultValue
-	// addSize(value)
-	return value
-}
-
 Object.prototype.getIn = function() {
 	const keys: string[] = arguments[0]
 	const defaultValue: any = arguments[1]
-	const value =
-		keys.reduce((acc, key) => (acc ? acc[key] : undefined), this as Obj) ??
-		defaultValue
-	// addSize(value)
-	return value
+	const value = keys.reduce(
+		(acc, key) => (acc ? acc[key] : undefined),
+		this as Obj,
+	)
+	return value !== undefined ? value : defaultValue
 }
 
 Object.prototype.merge = function() {
@@ -41,12 +25,17 @@ const updateIn = function(
 	const key = keys[0]
 	let newValue
 	if (keys.length <= 1) {
-		newValue = updater(item.get(key))
+		newValue = updater(item.getIn([key]))
 	} else {
+		const childValue = item.getIn([key])
 		newValue = updateIn(
 			keys.slice(1),
 			updater,
-			item.get(key) ?? (Number.isInteger(+keys[1]) ? [] : {}),
+			childValue !== undefined
+				? childValue
+				: Number.isInteger(+keys[1])
+				? []
+				: {},
 		)
 	}
 	if (Array.isArray(item)) {
@@ -67,11 +56,11 @@ Object.prototype.updateIn = function(keys: string[], updater: Function) {
 	return updateIn(keys, updater, this as Obj) as Obj
 }
 
-Object.prototype.set = Object.prototype.update
-
-Object.prototype.setIn = Object.prototype.updateIn
-
-Array.prototype.get = Object.prototype.get
+Object.prototype.setIn = function() {
+	const keys: string[] = arguments[0]
+	const value: any = arguments[1]
+	return updateIn(keys, () => value, this as Obj) as Obj
+}
 
 Array.prototype.getIn = Object.prototype.getIn
 
@@ -89,9 +78,11 @@ Array.prototype.updateIn = function(keys: string[], updater: Function) {
 	return updateIn(keys, updater, this as Arr) as Arr
 }
 
-Array.prototype.set = Array.prototype.update
-
-Array.prototype.setIn = Array.prototype.updateIn
+Array.prototype.setIn = function() {
+	const keys: string[] = arguments[0]
+	const value: any = arguments[1]
+	return updateIn(keys, () => value, this as Arr) as Arr
+}
 
 Array.prototype.first = function() {
 	return (this as Arr)[0]
@@ -101,6 +92,15 @@ Array.prototype.remove = function(index: number) {
 	const arr = this as Arr
 	return arr.slice(0, index).concat(arr.slice(index + 1, arr.length))
 }
+
+Object.defineProperty(Array.prototype, 'size', {
+	get() {
+		return this.length
+	},
+	set() {
+		return 0
+	},
+})
 
 type Obj = { [key: string]: any }
 type Arr = Array<any>
