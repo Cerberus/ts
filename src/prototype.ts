@@ -2,9 +2,7 @@ const getIn = {
 	writable: true,
 	configurable: true,
 	enumerable: false,
-	value() {
-		const keys: string[] = arguments[0]
-		const defaultValue: any = arguments[1]
+	value(keys: string[], defaultValue: any) {
 		const value = keys.reduce(
 			(acc, key) => (acc ? acc[key] : undefined),
 			this as Obj,
@@ -18,8 +16,7 @@ Object.defineProperty(Object.prototype, 'merge', {
 	writable: true,
 	configurable: true,
 	enumerable: false,
-	value() {
-		const obj: Obj = arguments[0]
+	value(obj: Obj) {
 		return Object.assign({}, this as Obj, obj)
 	},
 })
@@ -66,9 +63,7 @@ Object.defineProperty(Object.prototype, 'update', {
 	writable: true,
 	configurable: true,
 	enumerable: false,
-	value() {
-		const key: string = arguments[0]
-		const updater: Function = arguments[1]
+	value(key: string, updater: Function) {
 		return updateIn([key], updater, this as Obj) as Obj
 	},
 })
@@ -86,9 +81,7 @@ Object.defineProperty(Object.prototype, 'setIn', {
 	writable: true,
 	configurable: true,
 	enumerable: false,
-	value() {
-		const keys: string[] = arguments[0]
-		const value: any = arguments[1]
+	value(keys: string[], value: any) {
 		return updateIn(keys, () => value, this as Obj) as Obj
 	},
 })
