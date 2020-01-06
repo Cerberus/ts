@@ -97,6 +97,32 @@ Object.defineProperty(Object.prototype, 'delete', {
 	},
 })
 
+Object.defineProperty(Object.prototype, 'deleteIn', {
+	writable: true,
+	configurable: true,
+	enumerable: false,
+	value(keys: string[], value: any) {
+		const obj = this as Obj
+		if (keys.length <= 1) {
+			return obj.delete(keys[0])
+		}
+		const lastIndex = keys.length - 1
+		const parentKeys = keys.slice(0, lastIndex)
+		const childKey = keys[lastIndex]
+
+		const parentValue = obj.getIn(parentKeys)
+		let newParentValue: Array<any> | Object
+		if (Array.isArray(parentValue)) {
+			newParentValue = parentValue.remove(+childKey)
+		} else {
+			newParentValue = Object.assign({}, obj.getIn(parentKeys))
+			// @ts-ignore possible obj | array
+			delete newParentValue[childKey]
+		}
+		return updateIn(parentKeys, () => newParentValue, this as Obj) as Obj
+	},
+})
+
 Object.defineProperty(Array.prototype, 'getIn', getIn)
 
 Array.prototype.isEmpty = function() {

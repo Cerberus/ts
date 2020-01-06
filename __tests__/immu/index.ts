@@ -64,6 +64,14 @@ describe('immu', () => {
 			const obj = { a: 1 }
 			expect(obj.delete('a')).toEqual({})
 		})
+
+		it('deleteIn', () => {
+			expect({ a: 1 }.deleteIn(['a'])).toEqual({})
+			expect({ a: { b: 1, c: 0 } }.deleteIn(['a', 'b'])).toEqual({
+				a: { c: 0 },
+			})
+			expect({ a: [1, 2, 3] }.deleteIn(['a', 1])).toEqual({ a: [1, 3] })
+		})
 	})
 	describe('List', () => {
 		it('constructor', () => {
