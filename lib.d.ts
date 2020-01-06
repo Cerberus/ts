@@ -11,6 +11,7 @@ interface Object {
 	update(key: AccessPath, updater: (value: any) => any): Object
 	updateIn(keys: AccessPath[], updater: (value: any) => any): Object
 	setIn(keys: AccessPath[], value: any): Object
+	delete(key: AccessPath): Object
 	isEmpty(): boolean
 }
 

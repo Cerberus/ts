@@ -86,6 +86,17 @@ Object.defineProperty(Object.prototype, 'setIn', {
 	},
 })
 
+Object.defineProperty(Object.prototype, 'delete', {
+	writable: true,
+	configurable: true,
+	enumerable: false,
+	value(key: string, value: any) {
+		const newObj = Object.assign({}, this as Obj)
+		delete newObj[key]
+		return newObj
+	},
+})
+
 Object.defineProperty(Array.prototype, 'getIn', getIn)
 
 Array.prototype.isEmpty = function() {

@@ -59,6 +59,11 @@ describe('immu', () => {
 				s: { d: [2] },
 			})
 		})
+
+		it('delete', () => {
+			const obj = { a: 1 }
+			expect(obj.delete('a')).toEqual({})
+		})
 	})
 	describe('List', () => {
 		it('constructor', () => {
