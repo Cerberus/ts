@@ -1,25 +1,41 @@
-Object.prototype.getIn = function() {
-	const keys: string[] = arguments[0]
-	const defaultValue: any = arguments[1]
-	const value = keys.reduce(
-		(acc, key) => (acc ? acc[key] : undefined),
-		this as Obj,
-	)
-	return value !== undefined ? value : defaultValue
+const getIn = {
+	writable: true,
+	configurable: true,
+	enumerable: false,
+	value() {
+		const keys: string[] = arguments[0]
+		const defaultValue: any = arguments[1]
+		const value = keys.reduce(
+			(acc, key) => (acc ? acc[key] : undefined),
+			this as Obj,
+		)
+		return value !== undefined ? value : defaultValue
+	},
 }
+Object.defineProperty(Object.prototype, 'getIn', getIn)
 
-Object.prototype.merge = function() {
-	const obj: Obj = arguments[0]
-	return Object.assign({}, this as Obj, obj)
-}
+Object.defineProperty(Object.prototype, 'merge', {
+	writable: true,
+	configurable: true,
+	enumerable: false,
+	value() {
+		const obj: Obj = arguments[0]
+		return Object.assign({}, this as Obj, obj)
+	},
+})
 
-Object.prototype.isEmpty = function() {
-	return Object.keys(this as Obj).length <= 0
-}
+Object.defineProperty(Object.prototype, 'isEmpty', {
+	writable: true,
+	configurable: true,
+	enumerable: false,
+	value() {
+		return Object.keys(this as Obj).length <= 0
+	},
+})
 
 const updateIn = function(
-	keys: string[],
-	updater: Function,
+	keys: string[] = ['mock-sinon'],
+	updater: Function = () => {},
 	item: Obj | Arr,
 ): Obj | Arr {
 	const key = keys[0]
@@ -46,23 +62,38 @@ const updateIn = function(
 	return Object.assign({}, item, { [key]: newValue })
 }
 
-Object.prototype.update = function() {
-	const key: string = arguments[0]
-	const updater: Function = arguments[1]
-	return updateIn([key], updater, this as Obj) as Obj
-}
+Object.defineProperty(Object.prototype, 'update', {
+	writable: true,
+	configurable: true,
+	enumerable: false,
+	value() {
+		const key: string = arguments[0]
+		const updater: Function = arguments[1]
+		return updateIn([key], updater, this as Obj) as Obj
+	},
+})
 
-Object.prototype.updateIn = function(keys: string[], updater: Function) {
-	return updateIn(keys, updater, this as Obj) as Obj
-}
+Object.defineProperty(Object.prototype, 'updateIn', {
+	writable: true,
+	configurable: true,
+	enumerable: false,
+	value(keys: string[], updater: Function) {
+		return updateIn(keys, updater, this as Obj) as Obj
+	},
+})
 
-Object.prototype.setIn = function() {
-	const keys: string[] = arguments[0]
-	const value: any = arguments[1]
-	return updateIn(keys, () => value, this as Obj) as Obj
-}
+Object.defineProperty(Object.prototype, 'setIn', {
+	writable: true,
+	configurable: true,
+	enumerable: false,
+	value() {
+		const keys: string[] = arguments[0]
+		const value: any = arguments[1]
+		return updateIn(keys, () => value, this as Obj) as Obj
+	},
+})
 
-Array.prototype.getIn = Object.prototype.getIn
+Object.defineProperty(Array.prototype, 'getIn', getIn)
 
 Array.prototype.isEmpty = function() {
 	return (this as Arr).length <= 0
@@ -92,6 +123,8 @@ Array.prototype.remove = function(index: number) {
 	const arr = this as Arr
 	return arr.slice(0, index).concat(arr.slice(index + 1, arr.length))
 }
+
+Array.prototype.delete = Array.prototype.remove
 
 Object.defineProperty(Array.prototype, 'size', {
 	get() {

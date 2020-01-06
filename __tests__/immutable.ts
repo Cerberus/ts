@@ -1,6 +1,10 @@
 import { fromJS, Map, List } from 'immutable'
 
 describe('immutable', () => {
+	it('Map', () => {
+		Map({ a: 1 }) /*?*/
+			.delete('a') /*?*/
+	})
 	it('mergeIt', () => {
 		const mergeIt = (evouchers: Obj[]) => {
 			return Object.entries(

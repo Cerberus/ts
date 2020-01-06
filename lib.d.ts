@@ -22,5 +22,6 @@ interface Array<T = any> {
 	isEmpty(): boolean
 	first(): T
 	remove(index: number): T
+	delete(index: number): T
 	size: number
 }
