@@ -34,8 +34,8 @@ Object.defineProperty(Object.prototype, 'isEmpty', {
 })
 
 const updateIn = function(
-	keys: string[] = ['mock-sinon'],
-	updater: Function = () => {},
+	keys: string[],
+	updater: Function,
 	item: Obj | Arr,
 ): Obj | Arr {
 	const key = keys[0]
