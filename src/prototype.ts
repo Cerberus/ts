@@ -149,6 +149,14 @@ Array.prototype.first = function() {
 	return (this as Arr)[0]
 }
 
+Array.prototype.insert = function(index: number, value: any) {
+	const arr = this as Arr
+	return arr
+		.slice(0, index)
+		.concat(value)
+		.concat(arr.slice(index, arr.length))
+}
+
 Array.prototype.remove = function(index: number) {
 	const arr = this as Arr
 	return arr.slice(0, index).concat(arr.slice(index + 1, arr.length))

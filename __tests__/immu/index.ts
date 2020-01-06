@@ -111,6 +111,10 @@ describe('immu', () => {
 			expect([].setIn([0, 'a'], 3)).toEqual([{ a: 3 }])
 		})
 
+		it('insert', () => {
+			expect([1, 3].insert(1, 2)).toEqual([1, 2, 3])
+		})
+
 		it('remove / delete', () => {
 			expect([1, 2, 3].remove(1)).toEqual([1, 3])
 			expect([1, 2, 3].delete(1)).toEqual([1, 3])

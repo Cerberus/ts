@@ -23,6 +23,7 @@ interface Array<T = any> {
 	setIn(keys: AccessPath[], value: any): Array<T>
 	isEmpty(): boolean
 	first(): T
+	insert(index: number, value: any): T
 	remove(index: number): T
 	delete(index: number): T
 	size: number
