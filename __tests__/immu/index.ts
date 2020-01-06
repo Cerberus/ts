@@ -17,7 +17,6 @@ describe('immu', () => {
 
 		it('merge', () => {
 			const obj = { c: 1, s: { d: 1 } }
-			obj.updateIn === Object(obj.updateIn) /*?*/
 			expect(obj.merge({ s: { d: 2 } })).toEqual({ c: 1, s: { d: 2 } })
 		})
 
