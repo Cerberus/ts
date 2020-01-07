@@ -2,8 +2,7 @@ import { fromJS, Map, List } from 'immutable'
 
 describe('immutable', () => {
 	it('Map', () => {
-		Map({ a: 1 }) /*?*/
-			.delete('a') /*?*/
+		Map({ b: 0 }).includes(1) /*?*/
 	})
 	it('mergeIt', () => {
 		const mergeIt = (evouchers: Obj[]) => {

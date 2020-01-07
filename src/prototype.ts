@@ -59,7 +59,7 @@ const updateIn = function(
 	return Object.assign({}, item, { [key]: newValue })
 }
 
-Object.defineProperty(Object.prototype, 'update', {
+Object.defineProperty(Object.prototype, 'updateOn', {
 	writable: true,
 	configurable: true,
 	enumerable: false,
@@ -123,13 +123,24 @@ Object.defineProperty(Object.prototype, 'deleteIn', {
 	},
 })
 
+Object.defineProperty(Object.prototype, 'includes', {
+	writable: true,
+	configurable: true,
+	enumerable: false,
+	value(expectedValue: number) {
+		return !!Object.entries(this as Obj).find(
+			([_key, value]) => value === expectedValue,
+		)
+	},
+})
+
 Object.defineProperty(Array.prototype, 'getIn', getIn)
 
 Array.prototype.isEmpty = function() {
 	return (this as Arr).length <= 0
 }
 
-Array.prototype.update = function() {
+Array.prototype.updateOn = function() {
 	const key: string = arguments[0]
 	const updater: Function = arguments[1]
 	return updateIn([key], updater, this as Arr) as Arr

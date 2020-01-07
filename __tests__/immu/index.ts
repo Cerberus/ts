@@ -25,9 +25,9 @@ describe('immu', () => {
 			expect({ a: 1 }.isEmpty()).toBeFalsy()
 		})
 
-		it('update', () => {
+		it('updateOn', () => {
 			const obj = { c: 0, a: 1 }
-			expect(obj.update('a', value => value + 1)).toEqual({ c: 0, a: 2 })
+			expect(obj.updateOn('a', value => value + 1)).toEqual({ c: 0, a: 2 })
 		})
 
 		it('updateIn', () => {
@@ -72,6 +72,10 @@ describe('immu', () => {
 			})
 			expect({ a: [1, 2, 3] }.deleteIn(['a', 1])).toEqual({ a: [1, 3] })
 		})
+
+		it('includes', () => {
+			expect({ a: 1, b: 0 }.includes(0)).toBeTruthy()
+		})
 	})
 	describe('List', () => {
 		it('constructor', () => {
@@ -93,9 +97,9 @@ describe('immu', () => {
 			expect([1].isEmpty()).toBeFalsy()
 		})
 
-		it('update', () => {
+		it('updateOn', () => {
 			const arr = [0, 1]
-			expect(arr.update('0', value => value + 1)).toEqual([1, 1])
+			expect(arr.updateOn('0', value => value + 1)).toEqual([1, 1])
 		})
 
 		it('updateIn', () => {

@@ -8,17 +8,18 @@ type AccessPath = string | number
 interface Object {
 	getIn(keys: AccessPath[], defaultValue?: any): any
 	merge(obj: Object): Object
-	update(key: AccessPath, updater: (value: any) => any): Object
+	updateOn(key: AccessPath, updater: (value: any) => any): Object
 	updateIn(keys: AccessPath[], updater: (value: any) => any): Object
 	setIn(keys: AccessPath[], value: any): Object
 	delete(key: AccessPath): Object
 	deleteIn(keys: AccessPath[]): Object
+	includes(value: number): boolean
 	isEmpty(): boolean
 }
 
 interface Array<T = any> {
 	getIn(keys: AccessPath[], defaultValue?: any): any
-	update(key: AccessPath, updater: (value: any) => any): Array<T>
+	updateOn(key: AccessPath, updater: (value: any) => any): Array<T>
 	updateIn(keys: AccessPath[], updater: (value: any) => any): Array<T>
 	setIn(keys: AccessPath[], value: any): Array<T>
 	isEmpty(): boolean
