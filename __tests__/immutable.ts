@@ -2,6 +2,10 @@ import { fromJS, Map, List, OrderedSet } from 'immutable'
 
 describe('immutable', () => {
 	it('test', () => {
+		const v = 3
+		;[1, 2, 3].findIndex(value => {
+			return value === v
+		}) /*?*/
 	})
 	it('mergeIt', () => {
 		const mergeIt = (evouchers: Obj[]) => {
