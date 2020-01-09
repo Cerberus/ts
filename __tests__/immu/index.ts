@@ -5,6 +5,11 @@ describe('immu', () => {
 		it('constructor', () => {
 			expect(Map()).toEqual({})
 			expect(Map({ a: 1 })).toEqual({ a: 1 })
+			expect(Map()).toBe(Map())
+			expect(() => {
+				const obj = Map()
+				Object.assign(obj, { key: 1 })
+			}).toThrow()
 		})
 
 		it('getIn', () => {
@@ -81,6 +86,11 @@ describe('immu', () => {
 		it('constructor', () => {
 			expect(List()).toEqual([])
 			expect(List([1])).toEqual([1])
+			expect(List()).toBe(List())
+			expect(() => {
+				const arr = List()
+				arr.push(1)
+			}).toThrow()
 		})
 
 		it('size', () => {

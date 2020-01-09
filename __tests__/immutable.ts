@@ -1,8 +1,7 @@
-import { fromJS, Map, List } from 'immutable'
+import { fromJS, Map, List, OrderedSet } from 'immutable'
 
 describe('immutable', () => {
-	it('Map', () => {
-		Map({ b: 0 }).includes(1) /*?*/
+	it('test', () => {
 	})
 	it('mergeIt', () => {
 		const mergeIt = (evouchers: Obj[]) => {
