@@ -4,6 +4,7 @@ const getIn = {
 	enumerable: false,
 	value(keys: string[], defaultValue: any) {
 		const value = keys.reduce(
+			// @ts-ignore
 			(acc, key) => (acc ? acc[key] : undefined),
 			this as Obj,
 		)
@@ -38,8 +39,10 @@ const updateIn = function(
 	const key = keys[0]
 	let newValue
 	if (keys.length <= 1) {
+		// @ts-ignore
 		newValue = updater(item.getIn([key]))
 	} else {
+		// @ts-ignore
 		const childValue = item.getIn([key])
 		newValue = updateIn(
 			keys.slice(1),
@@ -92,6 +95,7 @@ Object.defineProperty(Object.prototype, 'delete', {
 	enumerable: false,
 	value(key: string, value: any) {
 		const newObj = Object.assign({}, this as Obj)
+		// @ts-ignore
 		delete newObj[key]
 		return newObj
 	},
@@ -104,17 +108,21 @@ Object.defineProperty(Object.prototype, 'deleteIn', {
 	value(keys: string[], value: any) {
 		const obj = this as Obj
 		if (keys.length <= 1) {
+			// @ts-ignore
 			return obj.delete(keys[0])
 		}
 		const lastIndex = keys.length - 1
 		const parentKeys = keys.slice(0, lastIndex)
 		const childKey = keys[lastIndex]
 
+		// @ts-ignore
 		const parentValue = obj.getIn(parentKeys)
 		let newParentValue: Array<any> | Object
 		if (Array.isArray(parentValue)) {
+			// @ts-ignore
 			newParentValue = parentValue.remove(+childKey)
 		} else {
+			// @ts-ignore
 			newParentValue = Object.assign({}, obj.getIn(parentKeys))
 			// @ts-ignore possible obj | array
 			delete newParentValue[childKey]
@@ -136,30 +144,36 @@ Object.defineProperty(Object.prototype, 'includes', {
 
 Object.defineProperty(Array.prototype, 'getIn', getIn)
 
+// @ts-ignore
 Array.prototype.isEmpty = function() {
 	return (this as Arr).length <= 0
 }
 
+// @ts-ignore
 Array.prototype.updateOn = function() {
 	const key: string = arguments[0]
 	const updater: Function = arguments[1]
 	return updateIn([key], updater, this as Arr) as Arr
 }
 
+// @ts-ignore
 Array.prototype.updateIn = function(keys: string[], updater: Function) {
 	return updateIn(keys, updater, this as Arr) as Arr
 }
 
+// @ts-ignore
 Array.prototype.setIn = function() {
 	const keys: string[] = arguments[0]
 	const value: any = arguments[1]
 	return updateIn(keys, () => value, this as Arr) as Arr
 }
 
+// @ts-ignore
 Array.prototype.first = function() {
 	return (this as Arr)[0]
 }
 
+// @ts-ignore
 Array.prototype.insert = function(index: number, value: any) {
 	const arr = this as Arr
 	return arr
@@ -168,11 +182,13 @@ Array.prototype.insert = function(index: number, value: any) {
 		.concat(arr.slice(index, arr.length))
 }
 
+// @ts-ignore
 Array.prototype.remove = function(index: number) {
 	const arr = this as Arr
 	return arr.slice(0, index).concat(arr.slice(index + 1, arr.length))
 }
 
+// @ts-ignore
 Array.prototype.delete = Array.prototype.remove
 
 Object.defineProperty(Array.prototype, 'size', {
@@ -184,5 +200,5 @@ Object.defineProperty(Array.prototype, 'size', {
 	},
 })
 
-type Obj = { [key: string]: any }
+type Obj = Object
 type Arr = Array<any>

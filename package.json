@@ -4,14 +4,16 @@
   "description": "",
   "main": "none",
   "dependencies": {
+    "@cerberus/script": "1.0.4",
     "@types/graphql": "^14.2.3",
     "@types/jsonwebtoken": "^8.3.2",
+    "@types/lodash": "^4.14.149",
     "@types/qs": "^6.5.3",
     "dataloader": "^1.4.0",
     "graphql": "^14.4.2",
     "immutable": "4.0.0-rc.12",
     "jsonwebtoken": "^8.5.1",
-    "lodash.uniqby": "^4.7.0",
+    "lodash": "^4.17.15",
     "object-sizeof": "^1.5.1",
     "qs": "^6.7.0",
     "react": "^16.8.6",
@@ -20,40 +22,29 @@
   },
   "devDependencies": {
     "@testing-library/react-hooks": "^3.1.0",
-    "@types/jest": "^24.0.12",
-    "@types/lodash.uniqby": "^4.7.6",
+    "@types/jest": "^25.1.3",
     "@types/node": "^12.7.5",
     "@types/serialize-javascript": "^1.5.0",
     "assemblyscript": "AssemblyScript/assemblyscript",
+    "benchmark": "^2.1.4",
     "husky": "^3.0.5",
-    "jest": "^24.8.0",
+    "jest": "25.1",
     "lint-staged": "^9.2.5",
     "onchange": "^6.1.0",
     "prettier": "1.19.1",
     "standard-version": "^7.0.0",
-    "ts-jest": "^24.0.2",
+    "ts-jest": "^25.2.1",
     "ts-loader": "^6.0.4",
     "ts-node": "^8.4.1",
     "ts-node-dev": "^1.0.0-pre.42",
-    "tslint": "^5.11.0",
-    "tslint-config-airbnb": "^5.11.1",
-    "tslint-config-prettier": "^1.17.0",
-    "typescript": "3.7.2"
+    "typescript": "3.8.3"
   },
   "scripts": {
     "test": "jest --silent",
     "test:watch": "jest --watch",
-    "tslint": "tslint -p .",
     "release": "standard-version",
     "asbuild:watch": "onchange src/assembly/**/file.ts -- yarn asbuild",
     "asbuild": "asc src/assembly/script/file.ts -b src/assembly/script/file.wasm --validate --debug;echo ✔︎"
-  },
-  "lint-staged": {
-    "*.ts": [
-      "prettier --write",
-      "tslint -p . --fix",
-      "git add"
-    ]
   },
   "repository": {
     "type": "git",
