@@ -1,0 +1,3 @@
+describe('lodash', () => {
+	it('simple', () => {})
+})
