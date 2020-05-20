@@ -73,7 +73,7 @@ const erroredTracePaths = {
 	},
 }
 
-describe.only('index', () => {
+describe('index', () => {
 	it('test', async () => {
 		if (
 			accountBillingEmail?.data?.account?.currentPlan?.capabilities?.clients ===
