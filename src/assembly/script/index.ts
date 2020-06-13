@@ -1,17 +1,13 @@
 const fs = require('fs')
-
-const path = `${__dirname}/file.wasm`
-
-const compiled = new WebAssembly.Module(fs.readFileSync(path))
-
-const imports = {
-	env: {
-		abort(msg: string, file: any, line: number, column: number) {
-			console.error(`abort called at index.ts:${line}:${column}`)
-		},
-	},
-}
+const loader = require('@assemblyscript/loader')
 
 Object.defineProperty(module, 'exports', {
-	get: () => new WebAssembly.Instance(compiled, imports).exports,
+	get: () =>
+		loader.instantiateSync(fs.readFileSync(`${__dirname}/file.wasm`), {
+			env: {
+				abort(msg: string, file: any, line: number, column: number) {
+					console.error(`abort called at index.ts:${line}:${column}`)
+				},
+			},
+		}).exports,
 })

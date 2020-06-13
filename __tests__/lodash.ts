@@ -1,5 +1,7 @@
-import { isEqual } from 'lodash'
+import { isEqual, get } from 'lodash'
 
 describe('lodash', () => {
-	it('simple', () => {})
+	it('simple', () => {
+		get(undefined, 'test') /*?*/
+	})
 })

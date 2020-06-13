@@ -31,7 +31,6 @@ module.exports = wallaby => {
 							asFile.fullPath,
 							'-b',
 							asFile.path.replace('.ts', '.wasm'),
-							'--validate',
 							'--debug',
 						],
 						(e, stdout) => {
