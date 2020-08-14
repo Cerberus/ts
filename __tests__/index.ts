@@ -1,5 +1,3 @@
 describe('simple', () => {
-	it('index', async () => {
-
-	})
+	it.only('index', () => {})
 })
