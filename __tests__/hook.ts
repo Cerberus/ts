@@ -1,24 +1,31 @@
-import { useState, useCallback, useRef } from 'react'
+import { useEffect } from 'react'
 import { renderHook, act } from '@testing-library/react-hooks'
 
-export const useBoolean = (initial: boolean = false) => {
-	const ref = useRef()
-	const [bool, setBool] = useState(initial)
-
-	const setBoolTrue = useCallback(() => {
-		setBool(true)
-	}, [])
-
-	return {
-		bool,
-		setBoolTrue,
-	}
+let count: number
+const fetchAnalytic = (id: string) => {
+	count += 1
 }
 
+const useAnalytic = (article: Record<string, any>) => {
+	useEffect(() => {
+		fetchAnalytic(article.id)
+	}, [article])
+}
+
+// file
 describe('state', () => {
-	it('useBoolean', () => {
-		const { result } = renderHook(() => useBoolean())
-		expect(result.current.bool).toBe(false)
-		act(() => result.current.setBoolTrue())
+	beforeEach(() => {
+		count = 0
+	})
+	it('useAnalytic', () => {
+		let article: Record<string, any> = { id: 1, like: false }
+		const { rerender } = renderHook(() => useAnalytic(article))
+
+		// console.log('count', count)
+		// article = { ...article, like: true }
+		// rerender()
+		// console.log('count', count)
+		// rerender()
+		// console.log('count', count)
 	})
 })
