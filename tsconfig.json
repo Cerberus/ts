@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+		"jsx": "react",
 		"lib": ["esnext", "dom"],
 		"module": "commonjs",
 		"target": "es2019",
@@ -8,6 +9,7 @@
     "moduleResolution": "node",
     "strict": true,
     "baseUrl": ".",
+    "esModuleInterop": true,
     "paths": {
       "*": ["src/*", "node_modules/*"]
     },

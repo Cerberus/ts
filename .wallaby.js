@@ -8,12 +8,12 @@ module.exports = wallaby => {
 			'!src/assembly/**/index.ts',
 		],
 		compilers: {
-			'**/!(file).ts': wallaby.compilers.typeScript({
+			'**/!(file).ts*': wallaby.compilers.typeScript({
 				useStandardDefaults: true,
 				isolatedModules: true,
 			}),
 		},
-		tests: ['__tests__/*.ts', '__tests__/**/index.ts'],
+		tests: ['__tests__/*.ts*', '__tests__/**/index.ts*'],
 		env: {
 			type: 'node',
 			runner: 'node',

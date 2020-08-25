@@ -21,11 +21,11 @@ describe('state', () => {
 		let article: Record<string, any> = { id: 1, like: false }
 		const { rerender } = renderHook(() => useAnalytic(article))
 
-		// console.log('count', count)
-		// article = { ...article, like: true }
-		// rerender()
-		// console.log('count', count)
-		// rerender()
-		// console.log('count', count)
+		console.log('count', count)
+		article = { ...article, like: true }
+		rerender()
+		console.log('count', count)
+		rerender()
+		console.log('count', count)
 	})
 })
