@@ -1,3 +1,3 @@
-export const getValue = () => {
+export const fn = () => {
 	return
 }

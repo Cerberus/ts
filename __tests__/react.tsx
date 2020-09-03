@@ -14,11 +14,12 @@ describe('react', () => {
 		const obj = {
 			text: '1',
 		}
-		const { rerender } = render(<Text obj={obj} />)
+		const getJsx = () => <Text obj={obj} />
+		const { rerender } = render(getJsx())
 		screen.getByText('1')
 
 		obj.text = '2'
-		rerender(<Text obj={obj} />)
+		rerender(getJsx())
 		screen.getByText('2')
 	})
 })
