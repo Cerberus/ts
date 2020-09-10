@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 
 module.exports = {
 	target: 'node',
@@ -9,6 +9,9 @@ module.exports = {
 				test: /\.ts?$/,
 				use: 'ts-loader',
 				exclude: /node_modules/,
+				options: {
+					configFile: 'tsconfig.json',
+				},
 			},
 		],
 	},
@@ -20,4 +23,4 @@ module.exports = {
 		path: path.resolve(__dirname, 'dist'),
 	},
 	mode: 'production',
-}
+};

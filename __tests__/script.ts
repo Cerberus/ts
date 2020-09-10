@@ -1,7 +1,8 @@
-// import { add } from '@cerberus/script'
+import { add, devide } from '@cerberus/script';
 
 describe('script', () => {
-	it('simple', () => {
-		// add(2, 3) /*?*/
-	})
-})
+	it.only('simple', () => {
+		add(1, 2); /*?*/
+		devide(1, 2);
+	});
+});

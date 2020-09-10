@@ -297,10 +297,10 @@
   resolved "https://registry.yarnpkg.com/@blakeembrey/deque/-/deque-1.0.5.tgz#f4fa17fc5ee18317ec01a763d355782c7b395eaf"
   integrity sha512-6xnwtvp9DY1EINIKdTfvfeAtCYw4OqBZJhtiqkT3ivjnEfa25VQ3TsKvaFfKm8MyGIEfE95qLe+bNEt3nB0Ylg==
 
-"@cerberus/script@1.0.35":
-  version "1.0.35"
-  resolved "https://npm.pkg.github.com/download/@cerberus/script/1.0.35/3f8ee32827942e3d5de13e4b1567352f56b5c4831cef0e70941b5af8dd7932af#bb4e55a37d6d2f9fdfd3a573348c37beeeb88727"
-  integrity sha512-0OjjdRPWVza/OjTSQD+TmUgk0R69n8po3LNKTMlS+erokvBtY8/6opF0QtQz8+0K2kJN7cb8z+k6p5NJBlyL5Q==
+"@cerberus/script@1.0.36":
+  version "1.0.36"
+  resolved "https://npm.pkg.github.com/download/@cerberus/script/1.0.36/fbe1d4389ead2127ae476363c1291c7e6f0c356f728c00b06294e4049ed653e3#9343714fd8b37a83e41686d7c57399e4ad0823d4"
+  integrity "sha1-k0NxT9izeoPkFobXxXOZ5K0II9Q= sha512-F5OQ5nXE26weVUJ5zzjCa8fKq3toX5WCG7GixenNaJL5+KSSHgG7lvYPNoawd8WM7s8SRXl8tHw4G+mgqQopmw=="
 
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"

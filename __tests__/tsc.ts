@@ -63,7 +63,7 @@ describe('tsc', () => {
 			}),
 		);
 		orders; /*?*/
-		console.log(points.map((point, index) => points[orders[index]])); /*?*/
+		// console.log(points.map((point, index) => points[orders[index]])); /*?*/
 
 		// const [min, max] = points.reduce(
 		// 	([min, max], point) => {
