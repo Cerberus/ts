@@ -1,3 +1,3 @@
-import { add } from '@cerberus/script';
+import { devide } from '@cerberus/script';
 
-console.log(add(1, 3));
+console.log(devide(1, 3));
