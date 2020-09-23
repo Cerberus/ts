@@ -2,7 +2,7 @@
 import { solve, Point } from 'tsc';
 
 describe('tsc', () => {
-	it.only('simple', () => {
+	it('simple', () => {
 		const points = [
 			[1, 1],
 			[3, 3],
