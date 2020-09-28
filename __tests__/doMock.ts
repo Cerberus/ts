@@ -1,5 +1,5 @@
 describe('doMock', () => {
-	it('test', async () => {
+	it.only('test', async () => {
 		// mocking part
 		const lowLevelFetch = jest.fn()
 		jest.doMock('track', () => ({
@@ -8,7 +8,7 @@ describe('doMock', () => {
 
 		// testing part
 		const { call } = await import('my-util')
-		call() /*?*/
+		call()
 		expect(lowLevelFetch).toBeCalled()
 	})
 })
