@@ -1,3 +1,3 @@
 describe('simple', () => {
-	it('index', () => {});
-});
+	it.only('index', () => {})
+})

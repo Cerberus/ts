@@ -1,3 +1,3 @@
 describe('script', () => {
-	it.only('simple', () => {});
-});
+	it('simple', () => {})
+})

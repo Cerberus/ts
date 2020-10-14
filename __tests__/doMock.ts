@@ -1,5 +1,5 @@
 describe('doMock', () => {
-	it.only('test', async () => {
+	it('test', async () => {
 		// mocking part
 		const lowLevelFetch = jest.fn()
 		jest.doMock('track', () => ({

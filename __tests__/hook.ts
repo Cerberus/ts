@@ -11,7 +11,7 @@ const useTrackArticle = (article: Article) => {
 }
 
 describe('ts', () => {
-	it.only('useTrackArticle', () => {
+	it('useTrackArticle', () => {
 		let article = { id: 1, bookmark: false }
 		const { rerender } = renderHook(() => useTrackArticle(article))
 		expect(trackArticle).toBeCalledTimes(1)
