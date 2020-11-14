@@ -1,4 +1,4 @@
-import * as Dataloader from 'dataloader'
+import Dataloader from 'dataloader'
 
 describe('dataloader', () => {
 	it('simple await', async () => {

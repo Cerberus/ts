@@ -42,8 +42,6 @@ describe('sw-cloudflaare', () => {
 
 		const newRequest = (url: URL, object: Object) => `r${url.pathname}`
 
-		const newHashResponse = (url: string[]) => `r${url.join()}`
-
 		const mockFetch = async (request: Request) => `json${request.url}`
 
 		const sha256 = async (query: string) => `h${query}`
