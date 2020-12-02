@@ -6,17 +6,17 @@ const args = {
 	async: true,
 }
 
-const schema = buildSchema(`
-  type Author {
-    name: String!
-  }
-  type Book {
-    title: String!
-    author: Author!
-  }
-  type Query {
-    books(limit: Int!): [Book!]!
-  }
+const schema = buildSchema(/* GraphQL */ `
+	type Author {
+		name: String!
+	}
+	type Book {
+		title: String!
+		author: Author!
+	}
+	type Query {
+		books(limit: Int!): [Book!]!
+	}
 `)
 
 class Author {
