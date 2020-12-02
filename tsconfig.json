@@ -11,7 +11,8 @@
     "baseUrl": ".",
     "esModuleInterop": true,
     "paths": {
-      "*": ["src/*", "node_modules/*"]
+      "@cerberus/script/*": ["node_modules/@cerberus/script/lib/cjs/*"],
+      "*": ["src/*", "node_modules/*"],
     },
     "allowSyntheticDefaultImports": true
   },

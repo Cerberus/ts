@@ -1,3 +1,5 @@
-import { devide } from '@cerberus/script'
+import { getName } from '@cerberus/script/user'
 
-console.log(devide(1, 3))
+getName().then((name: string) => {
+	console.log('name', name)
+})

@@ -1,6 +1,7 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
+	mode: 'production',
 	target: 'node',
 	entry: './src/index.ts',
 	module: {
@@ -8,7 +9,6 @@ module.exports = {
 			{
 				test: /\.ts?$/,
 				use: 'ts-loader',
-				exclude: /node_modules/,
 				options: {
 					configFile: 'tsconfig.json',
 				},
@@ -22,5 +22,4 @@ module.exports = {
 		filename: 'bundle.js',
 		path: path.resolve(__dirname, 'dist'),
 	},
-	mode: 'production',
-};
+}
