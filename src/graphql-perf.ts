@@ -2,8 +2,8 @@ import { graphql, buildSchema } from 'graphql'
 
 // Test arguments
 const args = {
-	limit: 1000,
-	async: true,
+	limit: 1,
+	async: false,
 }
 
 const schema = buildSchema(/* GraphQL */ `
@@ -54,10 +54,11 @@ const resolvers = {
 
 async function main() {
 	const testName = args.async ? 'async resolver' : 'sync resolver'
-	console.time(testName)
-	await graphql(
-		schema,
-		`
+	for (let i = 0; i < 10; i++) {
+		console.time(testName)
+		await graphql(
+			schema,
+			`
     {
       books(limit: ${args.limit}) {
         title
@@ -67,9 +68,10 @@ async function main() {
       }
     }
   `,
-		resolvers,
-	)
-	console.timeEnd(testName)
+			resolvers,
+		)
+		console.timeEnd(testName)
+	}
 }
 
 main()
