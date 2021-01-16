@@ -5,7 +5,7 @@ describe('aws4', () => {
 		const item = aws4.sign(
 			{
 				host: 'storage.googleapis.com',
-				path: '/static.starter-app.xyz/hmac.png',
+				path: '/store.starter-app.xyz/hmac.png',
 				service: 's3',
 				region: 'asia-southeast1',
 				method: 'DELETE',

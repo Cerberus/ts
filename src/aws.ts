@@ -4,10 +4,10 @@ import https from 'https'
 const item = aws4.sign(
 	{
 		host: 'storage.googleapis.com',
-		path: '/static.starter-app.xyz/2sjl9yqrt2c/hmac.png',
+		path: '/store.starter-app.xyz/2sjl9yqrt2c/a37569.jpeg',
 		service: 's3',
 		region: 'asia-southeast1',
-		method: 'DELETE',
+		method: 'GET',
 	},
 	{
 		accessKeyId: '',
