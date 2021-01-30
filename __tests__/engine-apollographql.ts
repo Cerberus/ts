@@ -3,9 +3,9 @@ import * as op from 'utils'
 const accountBillingEmail = {
 	data: {
 		account: {
-			id: 'starter-app',
-			name: 'Starter',
-			recurlyEmail: 'shadow_sun0708@hotmail.com',
+			id: 'your id',
+			name: 'your project name',
+			recurlyEmail: 'your email',
 			roles: { canQueryRecurlyInfo: true, __typename: 'AccountRoles' },
 			requestsInCurrentBillingMonth: 0,
 			synchronized: false,
